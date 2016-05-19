@@ -1,0 +1,53 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- OPEN Graph -->
+    <meta property="og:title" content="Stark and Wayne" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://starkandwayne.com" />
+	<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+    
+    <title>Stark and Wayne | Cloud Foundry Superheroes</title>
+    <link rel="stylesheet" href="{{root}}assets/css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Days+One|Open+Sans:700,400,400italic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="./assets/img/favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="./assets/img/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="./assets/img/favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="./assets/img/favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./assets/img/favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="./assets/img/favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="./assets/img/favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./assets/img/favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./assets/img/favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./assets/img/favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./assets/img/favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./assets/img/favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./assets/img/favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="./assets/img/favicon/favicon-144.png">
+	<meta name="msapplication-config" content="/browserconfig.xml">
+  </head>
+  <body>
+  	
+  	<div class="outer-wrap">
+	 
+	  	
+  	
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    {{> body}}
+	
+  	</div><!-- end outer-wrap -->
+    <script src="{{root}}assets/js/app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB86sw0jRpCOkBWkv0DGoaQTOAey7ThNg&callback=initMap"></script>
+  </body>
+</html>
