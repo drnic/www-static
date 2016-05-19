@@ -5,4 +5,4 @@ applications:
   host: www-staging
   domain: starkandwayne.com
   buildpack: staticfile_buildpack
-  path: build
+  path: dist
