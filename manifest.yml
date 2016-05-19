@@ -1,7 +1,7 @@
 applications:
 - name: www-static
   instances: 1
-  memory: 128M
+  memory: 64M
   host: www-staging
   domain: starkandwayne.com
   buildpack: staticfile_buildpack
