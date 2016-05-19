@@ -62,17 +62,17 @@ var PATHS = {
   ]
 };
 
-// Delete the "build" folder
+// Delete the "dist" folder
 // This happens every time a build starts
 gulp.task('clean', function(done) {
-  rimraf('build', done);
+  rimraf('dist', done);
 });
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
   gulp.src(PATHS.assets)
-    .pipe(gulp.dest('build/assets'));
+    .pipe(gulp.dest('dist/assets'));
 });
 
 // Copy page templates into finished HTML files
@@ -85,7 +85,7 @@ gulp.task('pages', function() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('pages:reset', function(cb) {
@@ -96,7 +96,7 @@ gulp.task('pages:reset', function(cb) {
 
 gulp.task('styleguide', function(cb) {
   sherpa('src/styleguide/index.md', {
-    output: 'build/styleguide.html',
+    output: 'dist/styleguide.html',
     template: 'src/styleguide/template.html'
   }, cb);
 });
@@ -126,7 +126,7 @@ gulp.task('sass', function() {
     .pipe(uncss)
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('build/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'));
 });
 
 // Combine JavaScript into one file
@@ -142,10 +142,10 @@ gulp.task('javascript', function() {
     .pipe($.concat('app.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('build/assets/js'));
+    .pipe(gulp.dest('dist/assets/js'));
 });
 
-// Copy images to the "build" folder
+// Copy images to the "dist" folder
 // In production, the images are compressed
 gulp.task('images', function() {
   var imagemin = $.if(isProduction, $.imagemin({
@@ -154,23 +154,23 @@ gulp.task('images', function() {
 
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
-    .pipe(gulp.dest('build/assets/img'));
+    .pipe(gulp.dest('dist/assets/img'));
 });
 
-// Build the "build" folder by running all of the above tasks
-gulp.task('build', function(done) {
+// Build the "dist" folder by running all of the above tasks
+gulp.task('dist', function(done) {
   sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
 });
 
 // Start a server with LiveReload to preview the site in
-gulp.task('server', ['build'], function() {
+gulp.task('server', ['dist'], function() {
   browser.init({
-    server: 'build', port: PORT
+    server: 'dist', port: PORT
   });
 });
 
 // Build the site, run the server, and watch for file changes
-gulp.task('default', ['build', 'server'], function() {
+gulp.task('default', ['dist', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy', browser.reload]);
   gulp.watch(['src/pages/**/*.html'], ['pages', browser.reload]);
   gulp.watch(['src/{layouts,partials}/**/*.html'], ['pages:reset', browser.reload]);
