@@ -342,7 +342,14 @@ function initMap() {
 			icon : "./assets/img/map_marker.png"
 		})
 
-		markers.push(marker1, marker2, marker3, marker4, marker5, marker6, marker7);
+		// Los Angeles CA
+		marker8 = new google.maps.Marker({
+			position : {lat :34.05, lng:-118.2437},
+			map : swMap,
+			icon : "./assets/img/map_marker.png"
+		})
+
+		markers.push(marker1, marker2, marker3, marker4, marker5, marker6, marker7, marker8);
 
 		clearTimeout(setMarkers);
 	}
