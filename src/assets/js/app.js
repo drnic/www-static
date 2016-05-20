@@ -2,6 +2,7 @@ $(document).foundation();
 
 $(document).ready(function(){
 	
+	var hash = window.location.hash.substr(1);
 	
 	var platform = $.restive.getPlatform();
 	
@@ -15,6 +16,14 @@ $(document).ready(function(){
 	$(window).trigger('resize');
 	
 	$.fn.matchHeight._throttle = 60;
+	
+	//When the page is ready. Let's scroll based on the #hash in the url
+	setTimeout(function(){
+		if(hash.length != 0) {
+			$('.sw-main-nav-item[data-scrollto="' + hash + '"] a').trigger('click');
+		}
+		
+	}, 1000)
 	
 })
 
@@ -168,6 +177,9 @@ if(Foundation.MediaQuery.atLeast('large')){
 		
 		var destination = $(this).parent().attr('data-scrollto');
 		
+		
+		
+		
 		var targetElement = $('#'+destination);
 		//console.log(targetElement);
 		
@@ -175,7 +187,10 @@ if(Foundation.MediaQuery.atLeast('large')){
 		
 		
 		
-		$('.site-content').scrollTo(targetElement, 1000);
+		$('.site-content').scrollTo(targetElement, 1000, function(){
+			//set the hash in the URL
+			window.location.hash = destination; //we do this after the scroll is complete so we don't automatically jump
+		});
 			
 	})
 	
