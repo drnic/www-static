@@ -68,6 +68,11 @@ gulp.task('clean', function(done) {
   rimraf('dist', done);
 });
 
+// Build the "dist" folder by running all of the above tasks
+gulp.task('build', function(done) {
+  sequence('clean', ['pages', 'sass', 'javascript', 'images', 'copy'], 'styleguide', done);
+});
+
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
