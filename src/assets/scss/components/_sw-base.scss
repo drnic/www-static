@@ -912,7 +912,8 @@ footer {
 	
 	//CONTACT SECTION
 	section#contact {
-		background: url("../../assets/img/blue_shimmer_bg.png") center bottom repeat;
+		background: url("../../assets/img/blue_shimmer_bg.png") center top repeat;
+		background-size: cover;
 		
 		h4 {
 			color: #fff;
@@ -983,11 +984,13 @@ footer {
 		}
 		
 		.contact-form, .newsletter {
+			
 			padding:1.5rem;
 			position: relative;
 			overflow: hidden;
 			@include breakpoint(large){
 				padding:2.5rem;
+				margin-top: rem-calc(55);
 			}
 			label {
 				text-align: left;
@@ -997,6 +1000,18 @@ footer {
 					margin-top: rem-calc(10);
 					border-radius: 6px;
 					font:normal 400 0.875rem $sw-body;
+				}
+			}
+			
+			p {
+				color: white;
+				text-align: left;
+				a {
+					color: $sw-blue;
+					font-weight: 700;
+					&:hover {
+						color: $sw-yellow;
+					}
 				}
 			}
 			

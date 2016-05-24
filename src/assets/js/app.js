@@ -40,6 +40,10 @@ $(document).ready(function(){
 	 $('.small-tiles-2').matchHeight({
 		 byRow : true
 	 });
+	 
+	 $('.contact-cols').matchHeight({
+		 byRow : true
+	 });
 
 //OFF CANVAS FUNCTIONALITY FOR PHONES AND TABLETS
 

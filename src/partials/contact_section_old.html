@@ -5,7 +5,7 @@
 
 			<div class="row align-center">
 
-				<div class="small-12 columns contact-cols">
+				<div class="small-12 columns">
 
 
 					<h4>Locations</h4>
@@ -100,14 +100,30 @@
 
 				<div class="small-12 columns">
 
-					<div class="contact-form blue-bg contact-cols">
+					<div class="contact-form blue-bg">
 
-						<h4>Contact Us</h4>
+						<h4>Contact</h4>
 
-						<p>Interested in what Stark &amp; Wayne can do for your team or Cloud Foundry? Send us an email or tweet us and let's build something amazing.</p>
+						<!--form-->
 
-						<p><a href="mailto:beahero@starkandwayne.com">Email: beahero@starkandwayne.com</a></p>
-						<p><a href="http://twitter.com/starkandwayne" target="_blank">Twitter: @starkandwayne</a></p>
+						<form id="contactForm">
+
+							<label>Name
+								<input type="text" placeholder="First Name" name="name">
+							</label>
+
+							<label>Email
+								<input type="email" placeholder="your@email.com" name="email">
+							</label>
+
+							<label>
+								How can Stark &amp; Wayne help your team?
+			  					<textarea id="comments" placeholder="Questions / Comments?" rows="5" name="comments"></textarea>
+			  				</label>
+
+			  				<input type="submit" value="Submit" id="contactSubmit">
+
+						</form>
 
 						<div class="responseMsg blue-bg" id="responseDisplay">
 							<div class="center-me">
