@@ -14,6 +14,8 @@ $(document).ready(function(){
 	}
 
 	$(window).trigger('resize');
+	
+	$(window).on('load', initMap);
 
 	$.fn.matchHeight._throttle = 60;
 
